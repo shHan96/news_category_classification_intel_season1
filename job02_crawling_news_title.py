@@ -45,18 +45,18 @@ for l in range(6):
         if k%10 == 0:
             df_section_title = pd.DataFrame(titles, columns=['titles'])
             df_section_title['category'] = category[l]
-            df_titles = pd.concat([df_titles, df_section_title], ignore_index=True)
-            df_titles.to_csv('./crawling_data/crawling_data_{}_{}.csv'.format(l,k), index=False)
+            #df_titles = pd.concat([df_titles, df_section_title], ignore_index=True)
+            df_section_title.to_csv('./crawling_data/crawling_data_{}_{}.csv'.format(l,k), index=False)
             titles = []
     df_section_title = pd.DataFrame(titles,columns = ['titles'])
     df_section_title['category'] = category[l]
-    df_titles = pd.concat([df_titles,df_section_title],ignore_index=True)
+    #df_titles = pd.concat([df_titles,df_section_title],ignore_index=True)
+    df_section_title.to_csv('./crawling_data/crawling_data.csv',index=False)
 
-df_titles.to_csv('./crawling_data/crawling_data.csv',index=False)
-
-print(df_titles.head())
-df_titles.info()
-print(df_titles['category'].value_counts())
+# print(df_titles.head())
+# df_titles.info()
+# print(df_titles['category'].value_counts())
+driver.close()
 # //*[@id="section_body"]/ul[1]/li[1]/dl/dt[2]/a
 # //*[@id="section_body"]/ul[1]/li[2]/dl/dt[2]/a
 #//*[@id="section_body"]/ul[2]/li[1]/dl/dt[2]/a
